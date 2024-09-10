@@ -1,78 +1,60 @@
 <link rel="stylesheet" href="style.css">
 <style>
 body {
-  background-image: url('image.png');
-  background-repeat: repeat;
-  background-attachment: fixed; 
+    background-image: url('image.png');
+    background-repeat: repeat;
+    background-attachment: fixed; 
 }
 </style>
-<body class = "head">
-	<input class = "search" type="text" required list ="Card">
-	<datalist id="Card">
-		<option value="Medical Info"></option>
-		<option value="Passwords"></option>
-		<option value="Bank account info"></option>
-		<option value="Adresse"></option>
-	</datalist>
-	<button type = "button" class = "add-tile" onclick = "openPopup()">+</button>
-	<div class = "popup" id = "popup">
-		<input type="text" required class="tile-name-input">
-		<button type = "button" class = "hide" onclick = "closePopup()">x</button>
-		<div class = "File-Types">
-			<button class = "txt" type = "button" onclick = "openTxtInput()"> Txt </button>
-			<button class = "txt" type = "button" onclick = "openImgUpload()"> Img </button>
-			<button class = "txt" type = "button" onclick = "openTxtInput()"> Mov </button>
-		</div>
-		<textarea id="txtInput" name="subject"  type="text" required class="txt-input" placeholder="Write something.."></textarea>
-		<div class = "upload-area" id = "imgUpload">
-			<div class = "icon"></div>
-		</div>
-	</div>
+<body class="head">
+    <input class="search" type="text" required list="Card">
+    <datalist id="Card">
+        <option value="Medical Info"></option>
+        <option value="Passwords"></option>
+        <option value="Bank account info"></option>
+        <option value="Adresse"></option>
+    </datalist>
+    <button type="button" class="add-tile" onclick="openPopup()">+</button>
+    <div class="popup" id="popup">
+        <form action="http://127.0.0.1:5000/save" method="post">
+            <input type="text" name="title" required class="tile-name-input" placeholder="Enter title...">
+            <textarea id="txtInput" name="data" required class="txt-input" placeholder="Write something.."></textarea>
+            <input type="submit" value="Save Data">
+            <button type="button" class="hide" onclick="closePopup()">x</button>
+        </form>
+        <div class="File-Types">
+            <button class="txt" type="button" onclick="openTxtInput()">Txt</button>
+            <button class="txt" type="button" onclick="openImgUpload()">Img</button>
+            <button class="txt" type="button" onclick="openTxtInput()">Mov</button>
+        </div>
+        <div class="upload-area" id="imgUpload">
+            <div class="icon"></div>
+        </div>
+    </div>
 <script>
 var popup = document.getElementById("popup");
 var txtInput = document.getElementById("txtInput");
 var imgUpload = document.getElementById("imgUpload");
 
-function openPopup(){
-	popup.classList.add("open-popup");
+function openPopup() {
+    popup.classList.add("open-popup");
+    txtInput.style.display = "block"; // Ensure text input is visible when popup opens
 }
-function closePopup(){
-	popup.classList.remove("open-popup");
-	imgUpload.style.display = "none";
-	txtInput.style.display = "none";
+function closePopup() {
+    popup.classList.remove("open-popup");
+    imgUpload.style.display = "none";
+    txtInput.style.display = "none";
 }
-function openTxtInput(){
-	txtInput.style.display = "block";
-	imgUpload.style.display = "none";
+function openTxtInput() {
+    txtInput.style.display = "block";
+    imgUpload.style.display = "none";
 }
-function openImgUpload(){
-	imgUpload.style.display = "block";
-	txtInput.style.display = "none";
-
+function openImgUpload() {
+    imgUpload.style.display = "block";
+    txtInput.style.display = "none";
 }
 </script>
 </body>
-<body class = "main">
-	<div class = "flex">
-		<div class = "Scrollable">
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
-			<div class="Card">
-				<h1> Tile </h1>
-			</div>
 			<div class="Card">
 				<h1> Tile </h1>
 			</div>
